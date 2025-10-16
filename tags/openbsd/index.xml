@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenBSD on kebre.net</title><link>https://kebre.net/tags/openbsd/</link><description>Recent content in OpenBSD on kebre.net</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 11 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://kebre.net/tags/openbsd/index.xml" rel="self" type="application/rss+xml"/><item><title>Mirror a OpenBSD repo</title><link>https://kebre.net/p/mirror-openbsd-repo/</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><guid>https://kebre.net/p/mirror-openbsd-repo/</guid><description>&lt;h1 id="mirror-a-openbsd-repo"&gt;Mirror a OpenBSD repo
+&lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="http://www.openbsd.org/ftp.html#prospective" target="_blank" rel="noopener"
+&gt;http://www.openbsd.org/ftp.html#prospective&lt;/a&gt;&lt;/p&gt;
+&lt;!-- wp:code --&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;rsync&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rv&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;progress&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;delete&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;updates&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;fuzzy&lt;/span&gt; &lt;span class="n"&gt;rsync&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;openbsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipacct&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;OpenBSD&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;6.2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;amd64&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pub&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;OpenBSD&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;6.2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;OpenBSd httpd config:&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="http://www.openbsd.org/httpd.conf" target="_blank" rel="noopener"
+&gt;http://www.openbsd.org/httpd.conf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a class="link" href="https://daulton.ca/2018/10/openbsd-create-private-mirror/" target="_blank" rel="noopener"
+&gt;https://daulton.ca/2018/10/openbsd-create-private-mirror/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://webhome.phy.duke.edu/~rgb/General/yum_article/yum_article/node15.html" target="_blank" rel="noopener"
+&gt;https://webhome.phy.duke.edu/~rgb/General/yum_article/yum_article/node15.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Only to list the files on the remote hosts since the rsync and http endpoints may contains different files:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rsync --list-only rsync://openbsd.ipacct.com/OpenBSD/6.2/packages/amd64/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class="link" href="https://stackoverflow.com/questions/13414086/how-to-use-rsync-list-only-source-to-list-all-the-files-in-that-directory" target="_blank" rel="noopener"
+&gt;https://stackoverflow.com/questions/13414086/how-to-use-rsync-list-only-source-to-list-all-the-files-in-that-directory&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Build Python 3.X on OpenBSD</title><link>https://kebre.net/p/build-python-3-on-openbsd/</link><pubDate>Thu, 29 Apr 2021 00:00:00 +0000</pubDate><guid>https://kebre.net/p/build-python-3-on-openbsd/</guid><description>&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cd /usr/ports/lang/python/3.X/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;make plist
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;make package
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Maybe
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;env PKG_CREATE_NO_CHECKS=yes make package&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ensure that you dont have a current Python version that may conflict&lt;/p&gt;
+&lt;p&gt;#thisisugly&lt;/p&gt;</description></item><item><title>OpenBSD VMD example</title><link>https://kebre.net/p/openbsd-vmd-example/</link><pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate><guid>https://kebre.net/p/openbsd-vmd-example/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;vmctl - https://man.openbsd.org/vmctl&lt;br&gt;vmd - https://man.openbsd.org/vmd&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Start by downloading the desired OpenBSD version you want to run. In my case I wanted to run OpenBSD 6.2 which is EOL. &lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;I found a Swedish repo that has all OpenBSD versions available so I downloaded it from here:&lt;br&gt;https://ftp.lysator.liu.se/pub/OpenBSD/&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;I had some issues booting only from the install62.iso so I downloaded the bsd.rd and booted from it and used the iso just to install all sets.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl create -s 12G openbsd62.immg&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl start -m 4G -L -i 1 -b bsd.rd -r install62.iso -d /home/abc/vms/openbsd62.img -c openbsd62&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;After the install finishes you can boot directly from you virtual disk.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl start -m 4G -L -i 1 -d /home/abc/vms/openbsd62.img -c openbsd62&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;</description></item><item><title>OpenBSD vmm/vmd/vmctl</title><link>https://kebre.net/p/openbsd-vmm-vmd-vmctl/</link><pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/openbsd-vmm-vmd-vmctl/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://www.openbsd.org/faq/faq16.html"&gt;https://www.openbsd.org/faq/faq16.html&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;/etc/pf.conf&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;match out on egress from 100.64.0.0/10 to any nat-to (egress)&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;sysctl net.inet.ip.forwarding=1&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;</description></item><item><title>Salt Capirca for BSD pf</title><link>https://kebre.net/p/salt-capirca-for-bsd-pf/</link><pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/salt-capirca-for-bsd-pf/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Use Salt to generate firewall rules for Open/Free-BSD&lt;br&gt;&lt;a href="https://github.com/google/capirca"&gt;Google Capirca&lt;/a&gt;&lt;br&gt;&lt;a href="https://docs.saltstack.com/en/latest/ref/modules/all/salt.modules.capirca_acl.html"&gt;Salt capirca_acl&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;This is not tested yet.&lt;br&gt;Since the syntax of pf.conf is not exactly the same between Free/Open-BSD some functions/attributes may not work(?)&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Pillar-data:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;acl:
+- my-filter:
+terms:
+- my-term:
+source_port: &amp;#91;1234, 1235]
+action: reject
+- my-other-term:
+source_port:
+- &amp;#91;5678, 5680]
+protocol: tcp
+action: accept&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;sudo salt freebsd* capirca.get_policy_config packetfilter
+freebsd-lab:
+# Packetfilter my-filter Policy
+# $Date: 2020/08/19 $
+# inet
+# term my-term
+block return quick inet from { any } port { 1235 1234 } to { any } flags S/SA
+# term my-other-term
+pass quick inet proto { tcp } from { any } port { 5678:5680 } to { any } flags S/SA keep state&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;How to apply to pf.conf&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:preformatted --&gt;
+&lt;pre class="wp-block-preformatted"&gt;/etc/pf.conf:
+file.managed:
+- contents: {{ salt.capirca.get_policy_config('packetfilter') }} &lt;/pre&gt;
+&lt;!-- /wp:preformatted --&gt;</description></item><item><title>Saltstack 3001 on OpenBSD</title><link>https://kebre.net/p/saltstack-3001-on-openbsd/</link><pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/saltstack-3001-on-openbsd/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Main goal is to run Salt version 3001 on OpenBSD 6.6&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Today it looks like the port/package for version 3001 will only be released to OpenBSD 6.7 and forward(?).&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;So how do I make a port/package to run version 3001 on my OpenBSD 6.6 systems.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;To learn more about the 3001 release I would recommend reading: &lt;a href="https://salt.tips/whats-new-in-salt-sodium/"&gt;https://salt.tips/whats-new-in-salt-sodium/&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading --&gt;
+&lt;h2&gt;Procedure&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:list --&gt;
+&lt;ul&gt;&lt;li&gt;Download ports&lt;/li&gt;&lt;li&gt;Make a copy of the old port / create a port&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+&lt;!-- wp:heading {"level":3} --&gt;
+&lt;h3&gt;Download ports&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Start by downloading the OpenBSD ports on a fresh 6.6: &lt;a href="https://www.openbsd.org/faq/ports/ports.html#PortsFetch"&gt;https://www.openbsd.org/faq/ports/ports.html#PortsFetch&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Just to keep a copy of the commands that I followed:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;cd /tmp
+ftp https://cdn.openbsd.org/pub/OpenBSD/$(uname -r)/{ports.tar.gz,SHA256.sig}
+signify -Cp /etc/signify/openbsd-$(uname -r | cut -c 1,3)-base.pub -x SHA256.sig ports.tar.gz
+cd /usr
+tar xzf /tmp/ports.tar.gz&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;now all ports is available in /usr/ports/ and Salt is located in /usr/ports/sysutils/salt&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"level":3} --&gt;
+&lt;h3&gt;Create the new port&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;What I did was to create a copy of of the existing port and then just updated all the dependencies.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading --&gt;
+&lt;h2&gt;My test setup using vmd/vmctl&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Testing the package I used the OpenBSD vmd, vmctl&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;To keep it simple:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;on the mother machine update pf.conf with the following lines:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;set skip on tap0
+set skip on tap1
+pass out on egress from 100.64.0.0/8 to any nat-to (egress)&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:preformatted --&gt;
+&lt;pre class="wp-block-preformatted"&gt;The host (tapX) address is assigned 100.64.n.2, where 'n' is the numeric VM ID visible in the 'vmctl status' command
+The guest (vio0) address is assigned 100.64.n.3&lt;/pre&gt;
+&lt;!-- /wp:preformatted --&gt;
+&lt;!-- wp:paragraph {"fontSize":"small"} --&gt;
+&lt;p class="has-small-font-size"&gt;&lt;a href="https://man.openbsd.org/vmctl#LOCAL_INTERFACES"&gt;https://man.openbsd.org/vmctl#LOCAL_INTERFACES&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;tap0/1 is the interfaces vmctl will create for the VM and the other rule is to allow the VM's to communicate with internet.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;You will have to enable vmd before working with vmctl:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;rcctl -f start vmd (or add it to /etc/rc.local, -f is to force it once)&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Create a virtual disk&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl create -s 2G disk.img&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Then start the new VM with a few options:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl start -c -m 2G -L -r install66.iso -d disk.img "myvm"&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;All the flags/parameters can be found at &lt;a href="https://man.openbsd.org/vmctl"&gt;vmctl&lt;/a&gt; (&lt;a href="https://man.openbsd.org/vmctl"&gt;https://man.openbsd.org/vmctl&lt;/a&gt;) but -c is to attach to the console directly. Remove it to start the VM in the background and use vmctl to attach to it.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;This will launch the regular OpenBSD installation script to setup your VM. If you want to make it easier for next time you can shutdown the VM when the installation is completed and copy the file disk.img. This will be like taking a snapshot.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;When the VM has booted I update the &lt;em&gt;/etc/resolv.conf&lt;/em&gt; to a public DNS like 8.8.8.8/9.9.9.9 just to be able to fetch the package dependencies from the internet.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Now download the package from the mother machine:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;scp &amp;lt;username&gt;@100.64.n.2:/usr/ports/packages/amd64/all/salt-3001p0.tgz .&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;This will download the package to the current directory. Replace the dot (.) with the path you want to place the file.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Now the package can be installed by running:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;pkg_add -D unsigned salt-3001p0.tgz&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;I have not looked into why the package is unsigned but adding "-D unsigned" ignores that error/issue.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;</description></item><item><title>Custom OpenBSD package</title><link>https://kebre.net/p/custom-openbsd-package/</link><pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/custom-openbsd-package/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://man.openbsd.org/package.5"&gt;https://man.openbsd.org/package.5&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://man.openbsd.org/pkg_create.1"&gt;https://man.openbsd.org/pkg_create.1&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="http://www.openbsd.org/papers/opencon07-portstutorial/index.html"&gt;http://www.openbsd.org/papers/opencon07-portstutorial/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://man.openbsd.org/update-plist.1"&gt;https://man.openbsd.org/update-plist.1&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;pkg_create can maybe solve the whole thing about creating a package.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;You want to do everything as a port and the run 'make package'.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Explaination of variables in the ports: /usr/ports/lang/python/&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;make -V &amp;lt;variable-name&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;</description></item><item><title>Build custom OpenBSD</title><link>https://kebre.net/p/build-custom-openbsd/</link><pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/build-custom-openbsd/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://man.openbsd.org/release"&gt;https://man.openbsd.org/release&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;span class="lnt"&gt;40
+&lt;/span&gt;&lt;span class="lnt"&gt;41
+&lt;/span&gt;&lt;span class="lnt"&gt;42
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dd &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/zero &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;mydisk.img &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;count&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;seek&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;2G
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vnconfig mydisk.img
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;fdisk -iy vnd0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;disklabel -E vnd0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;add slice a with all the storage
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;newfs /dev/vnd0a
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mount /dev/vnd0a /mnt/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /mnt/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar zxvfph base67.tgz
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp /etc/resolv.conf /mnt/etc
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp /etc/installurl /mnt/etc
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /mnt/dev/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./MAKEDEV all
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#If you want to make it bootable copy the kernel&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp /bsd /mnt/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;chroot /mnt/ /bin/sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#Set root password&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;passwd root
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#Create a fstab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#sd0a&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# cat /etc/boot.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;set&lt;/span&gt; tty com0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;stty com0 &lt;span class="m"&gt;115200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#cat /etc/ttys&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#tty00 &amp;#34;/usr/libexec/getty std.9600&amp;#34; vt220 on secure&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tty00 &lt;span class="s2"&gt;&amp;#34;/usr/libexec/getty std.115200&amp;#34;&lt;/span&gt; vt220 on secure&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Good idea now is to bake a backup of the image.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Other good stuff to consider:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:list --&gt;
+&lt;ul&gt;&lt;li&gt;Allow ssh?&lt;/li&gt;&lt;li&gt;Create additional users?&lt;/li&gt;&lt;li&gt;No network configuration has been made yet&lt;/li&gt;&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+&lt;!-- wp:heading --&gt;
+&lt;h2&gt;Test the image&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;OpenBSD has &lt;a href="https://man.openbsd.org/vmd"&gt;vmd &lt;/a&gt;with &lt;a href="https://man.openbsd.org/vmctl"&gt;vmctl &lt;/a&gt;that allows you to run a virtual machine easily.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl start -m 1G -i 1 -b /bsd -d mydisk.img "myvm" -c&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:list --&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;m &lt;/strong&gt;- memory&lt;/li&gt;&lt;li&gt;&lt;strong&gt;i &lt;/strong&gt;- #nr of interfaces (network)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;b &lt;/strong&gt;- bios/kernel&lt;/li&gt;&lt;li&gt;&lt;strong&gt;d &lt;/strong&gt;- disk&lt;/li&gt;&lt;li&gt;&lt;strong&gt;c &lt;/strong&gt;- attach console after start&lt;/li&gt;&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;</description></item></channel></rss>

@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kebre.net</title><link>https://kebre.net/</link><description>Recent content on kebre.net</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 28 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://kebre.net/index.xml" rel="self" type="application/rss+xml"/><item><title>RockPI 4c+ fan control</title><link>https://kebre.net/p/rockpi-4c-fan-control/</link><pubDate>Sat, 28 Dec 2024 00:00:00 +0000</pubDate><guid>https://kebre.net/p/rockpi-4c-fan-control/</guid><description>&lt;img src="https://kebre.net/p/rockpi-4c-fan-control/cover.png" alt="Featured image of post RockPI 4c+ fan control" /&gt;&lt;h1 id="rockpi-4c-fan-control"&gt;RockPI 4c+ fan control
+&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip0/export
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;40000&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip0/pwm0/period
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;10000&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; normal &amp;gt; /sys/class/pwm/pwmchip0/pwm0/polarity
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip0/pwm0/enable
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip0/power/runtime_enabled
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; /sys/class/pwm/pwmchip0/device/power/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; apt-get install -y rockpi4-dtbo
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; cat /boot/hw_intfc.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; rsetup
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; apt search coolero
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; apt search lm-sensor
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; apt install lm-sensors
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; sensors -v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; sensors-detect
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; pwmconfig
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; apt install fancontrol
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; pwmconfig
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip0/export
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;40000&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip0/pwm0/period
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;10000&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; normal &amp;gt; /sys/class/pwm/pwmchip0/pwm0/polarity
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ls -l /sys/class/pwm/pwmchip0/device/pwm/pwmchip0/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip0/device/pwm/pwmchip0/export
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip0/pwm0/enable
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip2/export
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;40000&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip2/pwm0/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;10000&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip2/pwm0/duty_cycle
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; normal &amp;gt; /sys/class/pwm/pwmchip2/pwm0/polarity
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip2/device/pwm/pwmchip0/export
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &amp;gt; /sys/class/pwm/pwmchip2/pwm0/enable
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Simple testing of Salt modules</title><link>https://kebre.net/p/testing-of-salt-modules/</link><pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate><guid>https://kebre.net/p/testing-of-salt-modules/</guid><description>&lt;h1 id="simple-testing-of-salt-modules"&gt;Simple testing of Salt modules
+&lt;/h1&gt;&lt;p&gt;After spending some time trying to learn testing and later how to test Salt modules I felt that I need to summarise what I have done and what I missed.&lt;/p&gt;
+&lt;p&gt;Testing Salt modules seems to require the following python packages:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pytest
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pytest-salt-factories
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;When I tried to run tests without the salt-factories plugin I only received the following error:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;FAILED _modules/test_interface_freebsd.py::test_parse_rc_conf - NameError: name &amp;#39;__salt__&amp;#39; is not defined
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Since I started using Tox for testing I had forgotten to add pytest-salt-factories as a dependency for the test python environment.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;def test_parse_rc_conf() -&amp;gt; None:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; rc_contents = &amp;#39;ifconfig_vtnet0=&amp;#34;inet 192.168.1.1/24&amp;#34;\nifconfig_vlan123=&amp;#34;vlandev vtnet0 vlan 123 192.168.2.1/24 description \&amp;#39;UnitTesting\&amp;#39;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; with patch.dict(
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; interfacemod.__salt__,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &amp;#34;file.replace&amp;#34;: MagicMock(return_value=True),
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &amp;#34;file.read&amp;#34;: mock_open(read_data=rc_contents),
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &amp;#34;file.grep&amp;#34;: MagicMock(return_value={&amp;#34;stdout&amp;#34;: rc_contents})
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ):
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; expected = {
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &amp;#39;vlan123&amp;#39;: &amp;#39;&amp;#34;vlandev vtnet0 vlan 123 192.168.2.1/24 description \&amp;#39;UnitTesting\&amp;#39;&amp;#39;,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &amp;#39;vtnet0&amp;#39;: &amp;#39;&amp;#34;inet 192.168.1.1/24&amp;#34;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; assert interfacemod.parse_rc_conf() == expected
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Newer FreeBSD version for package X bypass</title><link>https://kebre.net/p/newer-freebsd-version-for-package-x-bypass/</link><pubDate>Sat, 22 Oct 2022 00:00:00 +0000</pubDate><guid>https://kebre.net/p/newer-freebsd-version-for-package-x-bypass/</guid><description>&lt;h1 id="newer-freebsd-version-for-package-bypass"&gt;Newer FreeBSD version for package bypass
+&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;Newer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;FreeBSD&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;version&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;package&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;pkg&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nx"&gt;To&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ignore&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;this&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;error&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;set&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;IGNORE_OSVERSION&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;yes&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kn"&gt;package&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1301000&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;running&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;kernel&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1300139&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Dont agree&lt;/p&gt;
+&lt;p&gt;Do the following change and lock your FreeBSD version to latest release for that version.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;root@freebsd:/usr/local/etc/pkg/repos # cat FreeBSD.conf
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;FreeBSD: {
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; url: &amp;#34;pkg+http://pkg0.bme.freebsd.org/FreeBSD:13:amd64/release_1/&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="install-salt-30051-freebsd-130"&gt;Install Salt 3005.1 FreeBSD 13.0
+&lt;/h2&gt;&lt;p&gt;Follow above steps first&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pkg install python3.X
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mkdir salt_env
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;python3.x -m venv env
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;source env/bin/activate.csh
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pip install --upgrade pip
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pip install salt==3005.1 WILL FAIL
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;setenv C_INCLUDE_PATH /usr/local/include/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;setenv CPLUS_INCLUDE_PATH /usr/local/include/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pkg install cppzmq
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;might need
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pkg install libunwind
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;This solved errors like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;include&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;95&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;note&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;previous&lt;/span&gt; &lt;span class="n"&gt;declaration&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;here&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;size_t&lt;/span&gt; &lt;span class="n"&gt;strlcpy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;__restrict&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;char&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;__restrict&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size_t&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;^&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;error&lt;/span&gt; &lt;span class="n"&gt;generated&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;c++&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;failed&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;exit&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;#include &amp;amp;lt;libunwind.h&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; ^~~~~~~~~~~~~
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 1 error generated.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; error: command &amp;#39;c++&amp;#39; failed with exit status 1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>re-STREAM C2A gen2</title><link>https://kebre.net/p/re-stream-c2a/</link><pubDate>Thu, 21 Oct 2021 00:00:00 +0000</pubDate><guid>https://kebre.net/p/re-stream-c2a/</guid><description>&lt;h1 id="re-stream-c2a-gen2"&gt;re-STREAM C2A gen2
+&lt;/h1&gt;&lt;p&gt;admin webui IP address: 192.168.50.2&lt;/p&gt;</description></item><item><title>FreeBSD mfsbsd pxe</title><link>https://kebre.net/p/freebsd-mfsbsd-pxe/</link><pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate><guid>https://kebre.net/p/freebsd-mfsbsd-pxe/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://github.com/mmatuska/mfsbsd"&gt;https://github.com/mmatuska/mfsbsd&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://forums.freebsd.org/threads/freebsd-iso-bootable.52444/"&gt;https://forums.freebsd.org/threads/freebsd-iso-bootable.52444/&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://docs.freebsd.org/en/books/handbook/disks/#disks-virtual"&gt;https://docs.freebsd.org/en/books/handbook/disks/#disks-virtual&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;fetch http://ftp4.se.freebsd.org/pub/FreeBSD/releases/ISO-IMAGES/13.0/FreeBSD-13.0-RELEASE-amd64-disc1.iso
+mdconfig -a -t vnode -f &lt;meta charset="utf-8"&gt;FreeBSD-13.0-RELEASE-amd64-disc1.iso
+mount_cd9660 /dev/md0 /cdrom/
+&lt;meta charset="utf-8"&gt;git clone https://github.com/mmatuska/mfsbsd
+cd mfsbsd
+#Customize wanted files in conf/ specially rc.local that kickstarts everything
+make iso BASE=/cdrom/usr/freebsd-dist
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;rc.local&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;fetch http://&amp;lt;servername&amp;gt;/mfsbsd/installerconfig -o /etc/installerconfig
+tail -n 7 /etc/rc.local &amp;gt; /tmp/start.sh
+chmod +x /tmp/start.sh
+/tmp/start.sh
+exit 0
+#!/bin/csh
+setenv DISTRIBUTIONS "kernel.txz base.txz"
+setenv BSDINSTALL_DISTDIR /tmp
+setenv BSDINSTALL_DISTSITE http://ftp4.se.freebsd.org/pub/FreeBSD/releases/amd64/13.0-RELEASE
+bsdinstall distfetch
+bsdinstall script /etc/installerconfig&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;installerconfig, ensure that gpart edits correct harddrive&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;PARTITIONS=ada0
+DISTRIBUTIONS="kernel.txz base.txz"
+BSDINSTALL_DISTDIR=/tmp
+BSDINSTALL_DISTSITE=http://ftp4.se.freebsd.org/pub/FreeBSD/releases/amd64/13.0-RELEASE
+#!/bin/sh
+gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ada0
+sysrc ifconfig_em0=DHCP
+sysrc sshd_enable=YES
+echo "Installation complete, running in host system"
+echo "hostname=\"FreeBSD\"" &amp;gt;&amp;gt; /etc/rc.conf
+echo "autoboot_delay=\"5\"" &amp;gt;&amp;gt; /boot/loader.conf
+echo "sshd_enable=YES" &amp;gt;&amp;gt; /etc/rc.conf
+echo "Setup done" &amp;gt;&amp;gt; /tmp/log.txt
+echo "Setup done."
+poweroff&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;ipxe file&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;#!ipxe
+sanboot http://XXXXXX/mfsbsd-13.0-RELEASE-amd64.iso
+boot&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;</description></item><item><title>Mirror a OpenBSD repo</title><link>https://kebre.net/p/mirror-openbsd-repo/</link><pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate><guid>https://kebre.net/p/mirror-openbsd-repo/</guid><description>&lt;h1 id="mirror-a-openbsd-repo"&gt;Mirror a OpenBSD repo
+&lt;/h1&gt;&lt;p&gt;&lt;a class="link" href="http://www.openbsd.org/ftp.html#prospective" target="_blank" rel="noopener"
+&gt;http://www.openbsd.org/ftp.html#prospective&lt;/a&gt;&lt;/p&gt;
+&lt;!-- wp:code --&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;rsync&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rv&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;progress&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;delete&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;updates&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;fuzzy&lt;/span&gt; &lt;span class="n"&gt;rsync&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;openbsd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ipacct&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;OpenBSD&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;6.2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;amd64&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;www&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pub&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;OpenBSD&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mf"&gt;6.2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;packages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;OpenBSd httpd config:&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="http://www.openbsd.org/httpd.conf" target="_blank" rel="noopener"
+&gt;http://www.openbsd.org/httpd.conf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a class="link" href="https://daulton.ca/2018/10/openbsd-create-private-mirror/" target="_blank" rel="noopener"
+&gt;https://daulton.ca/2018/10/openbsd-create-private-mirror/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="link" href="https://webhome.phy.duke.edu/~rgb/General/yum_article/yum_article/node15.html" target="_blank" rel="noopener"
+&gt;https://webhome.phy.duke.edu/~rgb/General/yum_article/yum_article/node15.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Only to list the files on the remote hosts since the rsync and http endpoints may contains different files:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rsync --list-only rsync://openbsd.ipacct.com/OpenBSD/6.2/packages/amd64/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class="link" href="https://stackoverflow.com/questions/13414086/how-to-use-rsync-list-only-source-to-list-all-the-files-in-that-directory" target="_blank" rel="noopener"
+&gt;https://stackoverflow.com/questions/13414086/how-to-use-rsync-list-only-source-to-list-all-the-files-in-that-directory&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Build Python 3.X on OpenBSD</title><link>https://kebre.net/p/build-python-3-on-openbsd/</link><pubDate>Thu, 29 Apr 2021 00:00:00 +0000</pubDate><guid>https://kebre.net/p/build-python-3-on-openbsd/</guid><description>&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cd /usr/ports/lang/python/3.X/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;make plist
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;make package
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Maybe
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;env PKG_CREATE_NO_CHECKS=yes make package&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ensure that you dont have a current Python version that may conflict&lt;/p&gt;
+&lt;p&gt;#thisisugly&lt;/p&gt;</description></item><item><title>OpenBSD VMD example</title><link>https://kebre.net/p/openbsd-vmd-example/</link><pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate><guid>https://kebre.net/p/openbsd-vmd-example/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;vmctl - https://man.openbsd.org/vmctl&lt;br&gt;vmd - https://man.openbsd.org/vmd&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Start by downloading the desired OpenBSD version you want to run. In my case I wanted to run OpenBSD 6.2 which is EOL. &lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;I found a Swedish repo that has all OpenBSD versions available so I downloaded it from here:&lt;br&gt;https://ftp.lysator.liu.se/pub/OpenBSD/&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;I had some issues booting only from the install62.iso so I downloaded the bsd.rd and booted from it and used the iso just to install all sets.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl create -s 12G openbsd62.immg&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl start -m 4G -L -i 1 -b bsd.rd -r install62.iso -d /home/abc/vms/openbsd62.img -c openbsd62&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;After the install finishes you can boot directly from you virtual disk.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl start -m 4G -L -i 1 -d /home/abc/vms/openbsd62.img -c openbsd62&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;</description></item><item><title>OpenBSD vmm/vmd/vmctl</title><link>https://kebre.net/p/openbsd-vmm-vmd-vmctl/</link><pubDate>Thu, 05 Nov 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/openbsd-vmm-vmd-vmctl/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://www.openbsd.org/faq/faq16.html"&gt;https://www.openbsd.org/faq/faq16.html&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;/etc/pf.conf&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;match out on egress from 100.64.0.0/10 to any nat-to (egress)&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;sysctl net.inet.ip.forwarding=1&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;</description></item><item><title>Salt Capirca for BSD pf</title><link>https://kebre.net/p/salt-capirca-for-bsd-pf/</link><pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/salt-capirca-for-bsd-pf/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Use Salt to generate firewall rules for Open/Free-BSD&lt;br&gt;&lt;a href="https://github.com/google/capirca"&gt;Google Capirca&lt;/a&gt;&lt;br&gt;&lt;a href="https://docs.saltstack.com/en/latest/ref/modules/all/salt.modules.capirca_acl.html"&gt;Salt capirca_acl&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;This is not tested yet.&lt;br&gt;Since the syntax of pf.conf is not exactly the same between Free/Open-BSD some functions/attributes may not work(?)&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Pillar-data:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;acl:
+- my-filter:
+terms:
+- my-term:
+source_port: &amp;#91;1234, 1235]
+action: reject
+- my-other-term:
+source_port:
+- &amp;#91;5678, 5680]
+protocol: tcp
+action: accept&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;sudo salt freebsd* capirca.get_policy_config packetfilter
+freebsd-lab:
+# Packetfilter my-filter Policy
+# $Date: 2020/08/19 $
+# inet
+# term my-term
+block return quick inet from { any } port { 1235 1234 } to { any } flags S/SA
+# term my-other-term
+pass quick inet proto { tcp } from { any } port { 5678:5680 } to { any } flags S/SA keep state&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;How to apply to pf.conf&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:preformatted --&gt;
+&lt;pre class="wp-block-preformatted"&gt;/etc/pf.conf:
+file.managed:
+- contents: {{ salt.capirca.get_policy_config('packetfilter') }} &lt;/pre&gt;
+&lt;!-- /wp:preformatted --&gt;</description></item><item><title>Saltstack 3001 on OpenBSD</title><link>https://kebre.net/p/saltstack-3001-on-openbsd/</link><pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/saltstack-3001-on-openbsd/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Main goal is to run Salt version 3001 on OpenBSD 6.6&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Today it looks like the port/package for version 3001 will only be released to OpenBSD 6.7 and forward(?).&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;So how do I make a port/package to run version 3001 on my OpenBSD 6.6 systems.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;To learn more about the 3001 release I would recommend reading: &lt;a href="https://salt.tips/whats-new-in-salt-sodium/"&gt;https://salt.tips/whats-new-in-salt-sodium/&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading --&gt;
+&lt;h2&gt;Procedure&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:list --&gt;
+&lt;ul&gt;&lt;li&gt;Download ports&lt;/li&gt;&lt;li&gt;Make a copy of the old port / create a port&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+&lt;!-- wp:heading {"level":3} --&gt;
+&lt;h3&gt;Download ports&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Start by downloading the OpenBSD ports on a fresh 6.6: &lt;a href="https://www.openbsd.org/faq/ports/ports.html#PortsFetch"&gt;https://www.openbsd.org/faq/ports/ports.html#PortsFetch&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Just to keep a copy of the commands that I followed:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;cd /tmp
+ftp https://cdn.openbsd.org/pub/OpenBSD/$(uname -r)/{ports.tar.gz,SHA256.sig}
+signify -Cp /etc/signify/openbsd-$(uname -r | cut -c 1,3)-base.pub -x SHA256.sig ports.tar.gz
+cd /usr
+tar xzf /tmp/ports.tar.gz&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;now all ports is available in /usr/ports/ and Salt is located in /usr/ports/sysutils/salt&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"level":3} --&gt;
+&lt;h3&gt;Create the new port&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;What I did was to create a copy of of the existing port and then just updated all the dependencies.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading --&gt;
+&lt;h2&gt;My test setup using vmd/vmctl&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Testing the package I used the OpenBSD vmd, vmctl&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;To keep it simple:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;on the mother machine update pf.conf with the following lines:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;set skip on tap0
+set skip on tap1
+pass out on egress from 100.64.0.0/8 to any nat-to (egress)&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:preformatted --&gt;
+&lt;pre class="wp-block-preformatted"&gt;The host (tapX) address is assigned 100.64.n.2, where 'n' is the numeric VM ID visible in the 'vmctl status' command
+The guest (vio0) address is assigned 100.64.n.3&lt;/pre&gt;
+&lt;!-- /wp:preformatted --&gt;
+&lt;!-- wp:paragraph {"fontSize":"small"} --&gt;
+&lt;p class="has-small-font-size"&gt;&lt;a href="https://man.openbsd.org/vmctl#LOCAL_INTERFACES"&gt;https://man.openbsd.org/vmctl#LOCAL_INTERFACES&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;tap0/1 is the interfaces vmctl will create for the VM and the other rule is to allow the VM's to communicate with internet.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;You will have to enable vmd before working with vmctl:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;rcctl -f start vmd (or add it to /etc/rc.local, -f is to force it once)&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Create a virtual disk&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl create -s 2G disk.img&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Then start the new VM with a few options:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl start -c -m 2G -L -r install66.iso -d disk.img "myvm"&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;All the flags/parameters can be found at &lt;a href="https://man.openbsd.org/vmctl"&gt;vmctl&lt;/a&gt; (&lt;a href="https://man.openbsd.org/vmctl"&gt;https://man.openbsd.org/vmctl&lt;/a&gt;) but -c is to attach to the console directly. Remove it to start the VM in the background and use vmctl to attach to it.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;This will launch the regular OpenBSD installation script to setup your VM. If you want to make it easier for next time you can shutdown the VM when the installation is completed and copy the file disk.img. This will be like taking a snapshot.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;When the VM has booted I update the &lt;em&gt;/etc/resolv.conf&lt;/em&gt; to a public DNS like 8.8.8.8/9.9.9.9 just to be able to fetch the package dependencies from the internet.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Now download the package from the mother machine:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;scp &amp;lt;username&gt;@100.64.n.2:/usr/ports/packages/amd64/all/salt-3001p0.tgz .&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;This will download the package to the current directory. Replace the dot (.) with the path you want to place the file.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Now the package can be installed by running:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;pkg_add -D unsigned salt-3001p0.tgz&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;I have not looked into why the package is unsigned but adding "-D unsigned" ignores that error/issue.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;</description></item><item><title>Custom OpenBSD package</title><link>https://kebre.net/p/custom-openbsd-package/</link><pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/custom-openbsd-package/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://man.openbsd.org/package.5"&gt;https://man.openbsd.org/package.5&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://man.openbsd.org/pkg_create.1"&gt;https://man.openbsd.org/pkg_create.1&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="http://www.openbsd.org/papers/opencon07-portstutorial/index.html"&gt;http://www.openbsd.org/papers/opencon07-portstutorial/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://man.openbsd.org/update-plist.1"&gt;https://man.openbsd.org/update-plist.1&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;pkg_create can maybe solve the whole thing about creating a package.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;You want to do everything as a port and the run 'make package'.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Explaination of variables in the ports: /usr/ports/lang/python/&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;make -V &amp;lt;variable-name&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;</description></item><item><title>Build custom OpenBSD</title><link>https://kebre.net/p/build-custom-openbsd/</link><pubDate>Thu, 16 Jul 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/build-custom-openbsd/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;&lt;a href="https://man.openbsd.org/release"&gt;https://man.openbsd.org/release&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;span class="lnt"&gt;40
+&lt;/span&gt;&lt;span class="lnt"&gt;41
+&lt;/span&gt;&lt;span class="lnt"&gt;42
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dd &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/dev/zero &lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;mydisk.img &lt;span class="nv"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;count&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;seek&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;2G
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vnconfig mydisk.img
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;fdisk -iy vnd0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;disklabel -E vnd0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;add slice a with all the storage
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;newfs /dev/vnd0a
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mount /dev/vnd0a /mnt/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /mnt/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar zxvfph base67.tgz
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp /etc/resolv.conf /mnt/etc
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp /etc/installurl /mnt/etc
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /mnt/dev/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./MAKEDEV all
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#If you want to make it bootable copy the kernel&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp /bsd /mnt/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;chroot /mnt/ /bin/sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#Set root password&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;passwd root
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#Create a fstab&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#sd0a&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# cat /etc/boot.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;set&lt;/span&gt; tty com0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;stty com0 &lt;span class="m"&gt;115200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#cat /etc/ttys&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#tty00 &amp;#34;/usr/libexec/getty std.9600&amp;#34; vt220 on secure&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tty00 &lt;span class="s2"&gt;&amp;#34;/usr/libexec/getty std.115200&amp;#34;&lt;/span&gt; vt220 on secure&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Good idea now is to bake a backup of the image.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Other good stuff to consider:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:list --&gt;
+&lt;ul&gt;&lt;li&gt;Allow ssh?&lt;/li&gt;&lt;li&gt;Create additional users?&lt;/li&gt;&lt;li&gt;No network configuration has been made yet&lt;/li&gt;&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+&lt;!-- wp:heading --&gt;
+&lt;h2&gt;Test the image&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;OpenBSD has &lt;a href="https://man.openbsd.org/vmd"&gt;vmd &lt;/a&gt;with &lt;a href="https://man.openbsd.org/vmctl"&gt;vmctl &lt;/a&gt;that allows you to run a virtual machine easily.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl start -m 1G -i 1 -b /bsd -d mydisk.img "myvm" -c&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:list --&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;m &lt;/strong&gt;- memory&lt;/li&gt;&lt;li&gt;&lt;strong&gt;i &lt;/strong&gt;- #nr of interfaces (network)&lt;/li&gt;&lt;li&gt;&lt;strong&gt;b &lt;/strong&gt;- bios/kernel&lt;/li&gt;&lt;li&gt;&lt;strong&gt;d &lt;/strong&gt;- disk&lt;/li&gt;&lt;li&gt;&lt;strong&gt;c &lt;/strong&gt;- attach console after start&lt;/li&gt;&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;</description></item><item><title>Markdown Syntax Guide</title><link>https://kebre.net/p/markdown-syntax-guide/</link><pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate><guid>https://kebre.net/p/markdown-syntax-guide/</guid><description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
+&lt;h2 id="headings"&gt;Headings
+&lt;/h2&gt;&lt;p&gt;The following HTML &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; elements represent six levels of section headings. &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; is the highest section level while &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; is the lowest.&lt;/p&gt;
+&lt;h1 id="h1"&gt;H1
+&lt;/h1&gt;&lt;h2 id="h2"&gt;H2
+&lt;/h2&gt;&lt;h3 id="h3"&gt;H3
+&lt;/h3&gt;&lt;h4 id="h4"&gt;H4
+&lt;/h4&gt;&lt;h5 id="h5"&gt;H5
+&lt;/h5&gt;&lt;h6 id="h6"&gt;H6
+&lt;/h6&gt;&lt;h2 id="paragraph"&gt;Paragraph
+&lt;/h2&gt;&lt;p&gt;Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.&lt;/p&gt;
+&lt;p&gt;Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.&lt;/p&gt;
+&lt;h2 id="blockquotes"&gt;Blockquotes
+&lt;/h2&gt;&lt;p&gt;The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a &lt;code&gt;footer&lt;/code&gt; or &lt;code&gt;cite&lt;/code&gt; element, and optionally with in-line changes such as annotations and abbreviations.&lt;/p&gt;
+&lt;h3 id="blockquote-without-attribution"&gt;Blockquote without attribution
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+&lt;strong&gt;Note&lt;/strong&gt; that you can use &lt;em&gt;Markdown syntax&lt;/em&gt; within a blockquote.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="blockquote-with-attribution"&gt;Blockquote with attribution
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Don&amp;rsquo;t communicate by sharing memory, share memory by communicating.&lt;br&gt;
+— &lt;cite&gt;Rob Pike&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="tables"&gt;Tables
+&lt;/h2&gt;&lt;p&gt;Tables aren&amp;rsquo;t part of the core Markdown spec, but Hugo supports supports them out-of-the-box.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Age&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bob&lt;/td&gt;
+&lt;td&gt;27&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alice&lt;/td&gt;
+&lt;td&gt;23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="inline-markdown-within-tables"&gt;Inline Markdown within tables
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Italics&lt;/th&gt;
+&lt;th&gt;Bold&lt;/th&gt;
+&lt;th&gt;Code&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;italics&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;bold&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;code&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;A&lt;/th&gt;
+&lt;th&gt;B&lt;/th&gt;
+&lt;th&gt;C&lt;/th&gt;
+&lt;th&gt;D&lt;/th&gt;
+&lt;th&gt;E&lt;/th&gt;
+&lt;th&gt;F&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/td&gt;
+&lt;td&gt;Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex.&lt;/td&gt;
+&lt;td&gt;Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus&lt;/td&gt;
+&lt;td&gt;Proin sit amet velit nec enim imperdiet vehicula.&lt;/td&gt;
+&lt;td&gt;Ut bibendum vestibulum quam, eu egestas turpis gravida nec&lt;/td&gt;
+&lt;td&gt;Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="code-blocks"&gt;Code Blocks
+&lt;/h2&gt;&lt;h3 id="code-block-with-backticks"&gt;Code block with backticks
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt; &lt;span class="na"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Example HTML5 Document&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Test&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="code-block-indented-with-four-spaces"&gt;Code block indented with four spaces
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+&amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="diff-code-block"&gt;Diff code block
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-diff" data-lang="diff"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[dependencies.bevy]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git = &amp;#34;https://github.com/bevyengine/bevy&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rev = &amp;#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="gd"&gt;- features = [&amp;#34;dynamic&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="gd"&gt;&lt;/span&gt;&lt;span class="gi"&gt;+ features = [&amp;#34;jpeg&amp;#34;, &amp;#34;dynamic&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="one-line-code-block"&gt;One line code block
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;A paragraph&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="list-types"&gt;List Types
+&lt;/h2&gt;&lt;h3 id="ordered-list"&gt;Ordered List
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;First item&lt;/li&gt;
+&lt;li&gt;Second item&lt;/li&gt;
+&lt;li&gt;Third item&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="unordered-list"&gt;Unordered List
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;List item&lt;/li&gt;
+&lt;li&gt;Another item&lt;/li&gt;
+&lt;li&gt;And another item&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="nested-list"&gt;Nested list
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Fruit
+&lt;ul&gt;
+&lt;li&gt;Apple&lt;/li&gt;
+&lt;li&gt;Orange&lt;/li&gt;
+&lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Dairy
+&lt;ul&gt;
+&lt;li&gt;Milk&lt;/li&gt;
+&lt;li&gt;Cheese&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="other-elements--abbr-sub-sup-kbd-mark"&gt;Other Elements — abbr, sub, sup, kbd, mark
+&lt;/h2&gt;&lt;p&gt;&lt;abbr title="Graphics Interchange Format"&gt;GIF&lt;/abbr&gt; is a bitmap image format.&lt;/p&gt;
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
+&lt;p&gt;X&lt;sup&gt;n&lt;/sup&gt; + Y&lt;sup&gt;n&lt;/sup&gt; = Z&lt;sup&gt;n&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Press &lt;kbd&gt;CTRL&lt;/kbd&gt; + &lt;kbd&gt;ALT&lt;/kbd&gt; + &lt;kbd&gt;Delete&lt;/kbd&gt; to end the session.&lt;/p&gt;
+&lt;p&gt;Most &lt;mark&gt;salamanders&lt;/mark&gt; are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;The above quote is excerpted from Rob Pike&amp;rsquo;s &lt;a class="link" href="https://www.youtube.com/watch?v=PAAkCSZUG1c" target="_blank" rel="noopener"
+&gt;talk&lt;/a&gt; during Gopherfest, November 18, 2015.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item><item><title>Image gallery</title><link>https://kebre.net/p/image-gallery/</link><pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate><guid>https://kebre.net/p/image-gallery/</guid><description>&lt;img src="https://kebre.net/p/image-gallery/2.jpg" alt="Featured image of post Image gallery" /&gt;&lt;p&gt;Hugo theme Stack supports the creation of interactive image galleries using Markdown. It&amp;rsquo;s powered by &lt;a class="link" href="https://photoswipe.com/" target="_blank" rel="noopener"
+&gt;PhotoSwipe&lt;/a&gt; and its syntax was inspired by &lt;a class="link" href="https://typlog.com/" target="_blank" rel="noopener"
+&gt;Typlog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To use this feature, the image must be in the same directory as the Markdown file, as it uses Hugo&amp;rsquo;s page bundle feature to read the dimensions of the image. &lt;strong&gt;External images are not supported.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="syntax"&gt;Syntax
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;![&lt;span class="nt"&gt;Image 1&lt;/span&gt;](&lt;span class="na"&gt;1.jpg&lt;/span&gt;) ![&lt;span class="nt"&gt;Image 2&lt;/span&gt;](&lt;span class="na"&gt;2.jpg&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="result"&gt;Result
+&lt;/h2&gt;&lt;p&gt;&lt;img src="https://kebre.net/p/image-gallery/1.jpg"
+width="2000"
+height="1400"
+srcset="https://kebre.net/p/image-gallery/1_hu_811b671457ffff1f.jpg 480w, https://kebre.net/p/image-gallery/1_hu_c74af69dd7c1dcda.jpg 1024w"
+loading="lazy"
+alt="Image 1"
+class="gallery-image"
+data-flex-grow="142"
+data-flex-basis="342px"
+&gt; &lt;img src="https://kebre.net/p/image-gallery/2.jpg"
+width="1500"
+height="2250"
+srcset="https://kebre.net/p/image-gallery/2_hu_42f6436cb1637265.jpg 480w, https://kebre.net/p/image-gallery/2_hu_27862a49608da0d9.jpg 1024w"
+loading="lazy"
+alt="Image 2"
+class="gallery-image"
+data-flex-grow="66"
+data-flex-basis="160px"
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a class="link" href="https://unsplash.com/@mymind" target="_blank" rel="noopener"
+&gt;mymind&lt;/a&gt; and &lt;a class="link" href="https://unsplash.com/@lukechesser" target="_blank" rel="noopener"
+&gt;Luke Chesser&lt;/a&gt; on &lt;a class="link" href="https://unsplash.com/" target="_blank" rel="noopener"
+&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Shortcodes</title><link>https://kebre.net/p/shortcodes/</link><pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate><guid>https://kebre.net/p/shortcodes/</guid><description>&lt;img src="https://kebre.net/p/shortcodes/cover.jpg" alt="Featured image of post Shortcodes" /&gt;&lt;p&gt;For more details, check out the &lt;a class="link" href="https://stack.jimmycai.com/writing/shortcodes" target="_blank" rel="noopener"
+&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="bilibili-video"&gt;Bilibili video
+&lt;/h2&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1d4411N7zD"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="tencent-video"&gt;Tencent video
+&lt;/h2&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://v.qq.com/txp/iframe/player.html?vid=g0014r3khdw&amp;auto=0"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="youtube-video"&gt;YouTube video
+&lt;/h2&gt;&lt;div class="video-wrapper"&gt;
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/0qwALOOvUik"
+allowfullscreen
+title="YouTube Video"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="generic-video-file"&gt;Generic video file
+&lt;/h2&gt;&lt;div class="video-wrapper"&gt;
+&lt;video
+controls
+src="https://www.w3schools.com/tags/movie.mp4"
+&gt;
+&lt;p&gt;
+Your browser doesn't support HTML5 video. Here is a
+&lt;a href="https://www.w3schools.com/tags/movie.mp4"&gt;link to the video&lt;/a&gt; instead.
+&lt;/p&gt;
+&lt;/video&gt;
+&lt;/div&gt;
+&lt;h2 id="gist"&gt;Gist
+&lt;/h2&gt;&lt;script src="https://gist.github.com/CaiJimmy/e2751a943de10b2a5b3a8a6c2120cb86.js"&gt;&lt;/script&gt;
+&lt;h2 id="gitlab"&gt;GitLab
+&lt;/h2&gt;&lt;script
+type="application/javascript"
+src="https://gitlab.com/-/snippets/2589724.js"
+&gt;&lt;/script&gt;
+&lt;h2 id="quote"&gt;Quote
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;&lt;span class="cite"&gt;&lt;span&gt;― &lt;/span&gt;&lt;span&gt;A famous person, &lt;/span&gt;&lt;a href="https://en.wikipedia.org/wiki/Book"&gt;&lt;cite&gt;The book they wrote&lt;/cite&gt;&lt;/a&gt;&lt;/span&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a class="link" href="https://unsplash.com/@codioful" target="_blank" rel="noopener"
+&gt;Codioful&lt;/a&gt; on &lt;a class="link" href="https://unsplash.com/photos/WDSN62Qdxuk" target="_blank" rel="noopener"
+&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Math Typesetting</title><link>https://kebre.net/p/math-typesetting/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>https://kebre.net/p/math-typesetting/</guid><description>&lt;p&gt;Stack has built-in support for math typesetting using &lt;a class="link" href="https://katex.org/" target="_blank" rel="noopener"
+&gt;KaTeX&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It&amp;rsquo;s not enabled by default side-wide,&lt;/strong&gt; but you can enable it for individual posts by adding &lt;code&gt;math: true&lt;/code&gt; to the front matter. Or you can enable it side-wide by adding &lt;code&gt;math = true&lt;/code&gt; to the &lt;code&gt;params.article&lt;/code&gt; section in &lt;code&gt;config.toml&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="inline-math"&gt;Inline math
+&lt;/h2&gt;&lt;p&gt;This is an inline mathematical expression: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="block-math"&gt;Block math
+&lt;/h2&gt;$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;$$
+f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+$$&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Archives</title><link>https://kebre.net/archives/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://kebre.net/archives/</guid><description/></item><item><title>Links</title><link>https://kebre.net/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kebre.net/links/</guid><description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
+&lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;links&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;GitHub&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;GitHub is the world&amp;#39;s largest software development platform.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;website&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;https://github.com&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;TypeScript&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;website&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;https://www.typescriptlang.org&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;ts-logo-128.jpg&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;image&lt;/code&gt; field accepts both local and external images.&lt;/p&gt;</description></item><item><title>Search</title><link>https://kebre.net/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kebre.net/search/</guid><description/></item></channel></rss>
