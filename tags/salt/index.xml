@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Salt on kebre.net</title><link>https://kebre.net/tags/salt/</link><description>Recent content in Salt on kebre.net</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 19 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://kebre.net/tags/salt/index.xml" rel="self" type="application/rss+xml"/><item><title>Salt Capirca for BSD pf</title><link>https://kebre.net/p/salt-capirca-for-bsd-pf/</link><pubDate>Wed, 19 Aug 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/salt-capirca-for-bsd-pf/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Use Salt to generate firewall rules for Open/Free-BSD&lt;br&gt;&lt;a href="https://github.com/google/capirca"&gt;Google Capirca&lt;/a&gt;&lt;br&gt;&lt;a href="https://docs.saltstack.com/en/latest/ref/modules/all/salt.modules.capirca_acl.html"&gt;Salt capirca_acl&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;This is not tested yet.&lt;br&gt;Since the syntax of pf.conf is not exactly the same between Free/Open-BSD some functions/attributes may not work(?)&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Pillar-data:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;acl:
+- my-filter:
+terms:
+- my-term:
+source_port: &amp;#91;1234, 1235]
+action: reject
+- my-other-term:
+source_port:
+- &amp;#91;5678, 5680]
+protocol: tcp
+action: accept&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;sudo salt freebsd* capirca.get_policy_config packetfilter
+freebsd-lab:
+# Packetfilter my-filter Policy
+# $Date: 2020/08/19 $
+# inet
+# term my-term
+block return quick inet from { any } port { 1235 1234 } to { any } flags S/SA
+# term my-other-term
+pass quick inet proto { tcp } from { any } port { 5678:5680 } to { any } flags S/SA keep state&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;How to apply to pf.conf&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:preformatted --&gt;
+&lt;pre class="wp-block-preformatted"&gt;/etc/pf.conf:
+file.managed:
+- contents: {{ salt.capirca.get_policy_config('packetfilter') }} &lt;/pre&gt;
+&lt;!-- /wp:preformatted --&gt;</description></item><item><title>Saltstack 3001 on OpenBSD</title><link>https://kebre.net/p/saltstack-3001-on-openbsd/</link><pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate><guid>https://kebre.net/p/saltstack-3001-on-openbsd/</guid><description>&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Main goal is to run Salt version 3001 on OpenBSD 6.6&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Today it looks like the port/package for version 3001 will only be released to OpenBSD 6.7 and forward(?).&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;So how do I make a port/package to run version 3001 on my OpenBSD 6.6 systems.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;To learn more about the 3001 release I would recommend reading: &lt;a href="https://salt.tips/whats-new-in-salt-sodium/"&gt;https://salt.tips/whats-new-in-salt-sodium/&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading --&gt;
+&lt;h2&gt;Procedure&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:list --&gt;
+&lt;ul&gt;&lt;li&gt;Download ports&lt;/li&gt;&lt;li&gt;Make a copy of the old port / create a port&lt;/li&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;!-- /wp:list --&gt;
+&lt;!-- wp:heading {"level":3} --&gt;
+&lt;h3&gt;Download ports&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Start by downloading the OpenBSD ports on a fresh 6.6: &lt;a href="https://www.openbsd.org/faq/ports/ports.html#PortsFetch"&gt;https://www.openbsd.org/faq/ports/ports.html#PortsFetch&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Just to keep a copy of the commands that I followed:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;cd /tmp
+ftp https://cdn.openbsd.org/pub/OpenBSD/$(uname -r)/{ports.tar.gz,SHA256.sig}
+signify -Cp /etc/signify/openbsd-$(uname -r | cut -c 1,3)-base.pub -x SHA256.sig ports.tar.gz
+cd /usr
+tar xzf /tmp/ports.tar.gz&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;now all ports is available in /usr/ports/ and Salt is located in /usr/ports/sysutils/salt&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading {"level":3} --&gt;
+&lt;h3&gt;Create the new port&lt;/h3&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;What I did was to create a copy of of the existing port and then just updated all the dependencies.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:heading --&gt;
+&lt;h2&gt;My test setup using vmd/vmctl&lt;/h2&gt;
+&lt;!-- /wp:heading --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Testing the package I used the OpenBSD vmd, vmctl&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;To keep it simple:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;on the mother machine update pf.conf with the following lines:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;set skip on tap0
+set skip on tap1
+pass out on egress from 100.64.0.0/8 to any nat-to (egress)&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:preformatted --&gt;
+&lt;pre class="wp-block-preformatted"&gt;The host (tapX) address is assigned 100.64.n.2, where 'n' is the numeric VM ID visible in the 'vmctl status' command
+The guest (vio0) address is assigned 100.64.n.3&lt;/pre&gt;
+&lt;!-- /wp:preformatted --&gt;
+&lt;!-- wp:paragraph {"fontSize":"small"} --&gt;
+&lt;p class="has-small-font-size"&gt;&lt;a href="https://man.openbsd.org/vmctl#LOCAL_INTERFACES"&gt;https://man.openbsd.org/vmctl#LOCAL_INTERFACES&lt;/a&gt;&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;tap0/1 is the interfaces vmctl will create for the VM and the other rule is to allow the VM's to communicate with internet.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;You will have to enable vmd before working with vmctl:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;rcctl -f start vmd (or add it to /etc/rc.local, -f is to force it once)&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Create a virtual disk&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl create -s 2G disk.img&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Then start the new VM with a few options:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;vmctl start -c -m 2G -L -r install66.iso -d disk.img "myvm"&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;All the flags/parameters can be found at &lt;a href="https://man.openbsd.org/vmctl"&gt;vmctl&lt;/a&gt; (&lt;a href="https://man.openbsd.org/vmctl"&gt;https://man.openbsd.org/vmctl&lt;/a&gt;) but -c is to attach to the console directly. Remove it to start the VM in the background and use vmctl to attach to it.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;This will launch the regular OpenBSD installation script to setup your VM. If you want to make it easier for next time you can shutdown the VM when the installation is completed and copy the file disk.img. This will be like taking a snapshot.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;When the VM has booted I update the &lt;em&gt;/etc/resolv.conf&lt;/em&gt; to a public DNS like 8.8.8.8/9.9.9.9 just to be able to fetch the package dependencies from the internet.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Now download the package from the mother machine:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;scp &amp;lt;username&gt;@100.64.n.2:/usr/ports/packages/amd64/all/salt-3001p0.tgz .&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;This will download the package to the current directory. Replace the dot (.) with the path you want to place the file.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;Now the package can be installed by running:&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;
+&lt;!-- wp:code --&gt;
+&lt;pre class="wp-block-code"&gt;&lt;code&gt;pkg_add -D unsigned salt-3001p0.tgz&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- /wp:code --&gt;
+&lt;!-- wp:paragraph --&gt;
+&lt;p&gt;I have not looked into why the package is unsigned but adding "-D unsigned" ignores that error/issue.&lt;/p&gt;
+&lt;!-- /wp:paragraph --&gt;</description></item></channel></rss>
