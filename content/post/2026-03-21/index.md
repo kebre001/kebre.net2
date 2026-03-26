@@ -19,3 +19,20 @@ This project is an attempt to learn the basics of radio reverse engineering usin
 I will be using a HackRF as the primary SDR (Software Defined Radio) device to capture the RF signals emitted by the VFF/CDL-B9 remote. Once I have raw RF recordings, I'll experiment with tools such as Universal Radio Hacker (URH) to analyze and possibly demodulate the captured signals. Additionally, I'll use Inspectrum for visualizing signal characteristics, looking for patterns in time and frequency that may reveal modulation schemes, encoding, or unique device behaviors.
 
 This process will involve learning about different radio signal characteristics, capturing methods, and analysis techniques. The focus is on exploration and documentation of the reverse engineering process, with the hope that others can learn from my progress and potentially replicate or expand upon this project.
+
+
+## Frequency
+
+Using HackRF to find the frequency showed that the remote transmitts on 869.8Mhz.
+
+When sending the signal I found two spikes:
+* 869.808Mhz
+* 869.881Mhz
+
+When converting the capture to Flipper Zero .sub it fails to replicate the signal.
+
+The spikes when using F0 is:
+* 869.808Mhz
+* 869.901Mhz
+
+
